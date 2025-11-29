@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story Page with Background Video</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+      padding: 40px;
+    }
+
+    .story-box {
+      max-width: 700px;
+      height: 80%;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      color: #000;
+      font-size: 20px;
+      line-height: 1.6;
+      overflow-y: auto;
+      animation: fadeIn 2s ease;
+    }
+
+    .story-box h2 { color: #000; text-align: center; margin-bottom: 15px; }
+    .story-box p { color: #000; margin-bottom: 15px; }
+
+    marquee {
+      color: #000;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Scrollbar */
+    .story-box::-webkit-scrollbar { width: 10px; }
+    .story-box::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .story-box::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+    }
+
+    /* Button */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    .music-btn:hover {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="bg.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Background Music -->
+  <audio id="bgm" loop>
+    <source src="bg.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="container">
+    <div class="story-box">
+      <h2>Dear Fatih, Chikal, Rida</h2>
+
+      <p>Selamat yang udah buka sebelumnya terimakasih udah meluangkan waktu untuk buka ini btw pencet dulu mulai musik nya biar mantapp...</p>
+      <p>langsung aja to the point gue wildan banyak banyak terimakasih sama lu pada semua mohon maaf atas perlakuan gue juga selama PKL kalo gue nyakitin atau sejenisnya lah makasih juga udah bantu gue selama ini mulai dari awal pkl sampai sekarang selesai 6 bulan g terasa wkwkw</p>
+      <p>makasih buat fatih udah nemenin gue dari awal gue jemput hehe di tibum susah seneng walau keliatan si ama gue menderita wkwk gue minta maap ya</p>
+      <p>makasih juga buat cikal yang udah bantu masukin gue buat PKL ngasih kesempatan buat jadi lebih baik wkwk walau ya gitu deh makasih banget udah ajak gue PKL ya </p>
+      <p>buat rida mohon maaf kalo gue bikin kesel belakangan ini abisnya lu bikin kesel gue duluan si tapi yaudahla ya makasih buat semuanya juga makasih banyak </p>
+      <p>Terimakasih banyak semua yang udah mau berteman ama gue ini cerita gue bikin sendiri g pake chat gpt btw makasih banyak sebelumnya udah nyempetin jadi temen/partner gue di pkl gue mohon maaf  sebelumnya maaf banget atas perlakuan gue yang aneh aneh gue akui emang mohon maaf kalo ngeselin lah menurut lu makasih banyak ya udah mau berteman wkwk</p>
+      <p>eh mohon maaf ya hadiahnya telat dikit soalnya di luar ekspetasi gue datang nya banyak problem juga jadi nya baru sempet ngasih deh</p>
+
+      <marquee>Mohon maaf kalo ada chat yang Typo atau sejenisnya lu baca aja deh kira kira wkwk semoga masih bisa berteman terus ya haha</marquee>
+    </div>
+  </div>
+
+  <!-- BUTTON -->
+  <button class="music-btn" onclick="playMusic()">🎵 Mulai Musik</button>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("bgm");
+      audio.muted = false;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
